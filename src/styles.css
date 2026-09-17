@@ -142,3 +142,44 @@
     color: var(--color-foreground);
   }
 }
+
+/* ===== Pixel arcade (Game Boy LCD) theme ===== */
+@theme {
+  --color-lcd-bg: #9bbc0f;
+  --color-lcd-ink: #0f380f;
+  --color-lcd-mid: #306230;
+  --color-lcd-low: #8bac0f;
+  --font-pixel: "Press Start 2P", monospace;
+  --font-crt: "VT323", monospace;
+  --ease-pixel: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes pixel-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pixel-scanline {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes pixel-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility pixelated {
+  image-rendering: pixelated;
+}
