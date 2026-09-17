@@ -155,7 +155,7 @@ function SnakeGame() {
         // "olhos" do pixel
         ctx.fillStyle = LCD_BG;
         ctx.fillRect(s.x * CELL + 3, s.y * CELL + 3, 2, 2);
-x:      }
+      }
     });
   }, []);
 
