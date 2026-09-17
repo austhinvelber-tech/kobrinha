@@ -111,6 +111,8 @@ function SnakeGame() {
   const [phase, setPhase] = useState<Phase>("title");
   const [score, setScore] = useState(0);
   const [best, setBest] = useState(0);
+  // score espelhado em ref para o tick ler o valor atual sem reiniciar
+  const scoreRef = useRef(0);
 
   // Recorde salvo no navegador (lido só no cliente)
   useEffect(() => {
