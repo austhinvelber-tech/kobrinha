@@ -196,7 +196,9 @@ function SnakeGame() {
       if (next) dirRef.current = next;
       const d = DIRS[dirRef.current];
       const snake = snakeRef.current;
-      const head = { x: snake[0].x + d.x, y: snake[0].y + d.y };
+      const headSeg = snake[0];
+      if (!headSeg) return;
+      const head = { x: headSeg.x + d.x, y: headSeg.y + d.y };
 
       const hitWall = head.x < 0 || head.x >= COLS || head.y < 0 || head.y >= ROWS;
       const hitSelf = snake.some((s) => s.x === head.x && s.y === head.y);
