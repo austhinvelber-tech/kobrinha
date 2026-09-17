@@ -226,8 +226,6 @@ function SnakeGame() {
     // score na dependência reinicia o intervalo para acelerar gradualmente
   }, [phase, score, draw]);
 
-  // score espelhado em ref para o tick ler o valor atual sem reiniciar
-  const scoreRef = useRef(0);
   useEffect(() => {
     scoreRef.current = score;
   }, [score]);
