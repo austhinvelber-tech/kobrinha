@@ -277,12 +277,13 @@ function SnakeGame() {
   // Toque: arraste sobre o tabuleiro para mudar a direção
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches[0];
-    touchStartRef.current = { x: t.clientX, y: t.clientY };
+    if (t) touchStartRef.current = { x: t.clientX, y: t.clientY };
   };
   const onTouchEnd = (e: React.TouchEvent) => {
     const start = touchStartRef.current;
     if (!start || phase !== "playing") return;
     const t = e.changedTouches[0];
+    if (!t) return;
     const dx = t.clientX - start.x;
     const dy = t.clientY - start.y;
     if (Math.abs(dx) < 12 && Math.abs(dy) < 12) return;
